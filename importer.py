@@ -1,3 +1,7 @@
+# Workadu Invoice Importer
+# Copyright (c) 2026 Fotiou Dimitrios
+# Licensed under the MIT License
+
 import base64
 import requests
 import csv
@@ -135,3 +139,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
