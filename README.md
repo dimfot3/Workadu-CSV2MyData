@@ -29,7 +29,7 @@ The workflow processes CSV exports (such as Calendly or Iris data) to identify c
     ```yaml
     api:
       key: "YOUR_WORKADU_API_KEY"
-      base_url: "[https://app.workadu.com/api](https://app.workadu.com/api)"
+      base_url: "https://app.workadu.com/api"
 
     settings:
       series_id: 174862
