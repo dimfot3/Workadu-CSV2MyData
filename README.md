@@ -1,68 +1,62 @@
-Workadu Invoice Importer
-A lightweight Python utility to automate customer creation and invoice generation on the Workadu platform via CSV data.
+# Workadu CSV2MyData
 
-Features
-Automated Workflow: Creates customers, generates draft invoices, adds line items, and publishes them in one sequence.
+This Python utility automates customer management and billing on Workadu, an all-in-one business management platform used for scheduling, ERP, and professional invoicing. By leveraging the Workadu REST API, the tool eliminates manual data entry, transforming raw administrative data into finalized financial records in a single execution.
 
-CSV Integration: Processes bulk data from standard exports (e.g., Iris/Calendly).
+The workflow processes CSV exports (such as Calendly or Iris data) to identify customers, create new profiles when necessary, and generate detailed line-item invoices. Once published, the tool ensures all invoices are automatically transmitted to the AADE MyData platform, keeping your business fully compliant with Greek tax regulations.
 
-Configurable: Manage API credentials and tax settings via external YAML configuration.
 
-Safety First: Includes rate-limiting (sleep intervals) and logging for process tracking.
+## 🛠️ Tech Stack
 
-Tech Stack
-Language: Python 3.10+
+* **Language:** Python 3.10+
+* **Libraries:** `requests`, `PyYAML`
+* **Authentication:** Basic Auth (Base64 encoded API Key)
 
-Libraries: requests, PyYAML
+## 📦 Installation
 
-API: Workadu REST API (Basic Auth)
+1.  **Clone the Repository:**
+    ```bash
+    git clone [https://github.com/yourusername/workadu-invoice-importer.git](https://github.com/yourusername/workadu-invoice-importer.git)
+    cd workadu-invoice-importer
+    ```
 
-Setup
-Clone the repository:
+2.  **Install Dependencies:**
+    ```bash
+    pip install requests pyyaml
+    ```
 
-Bash
+3.  **Prepare Configuration:**
+    Create a `config.yaml` file in the root directory:
+    ```yaml
+    api:
+      key: "YOUR_WORKADU_API_KEY"
+      base_url: "[https://app.workadu.com/api](https://app.workadu.com/api)"
 
-git clone https://github.com/yourusername/workadu-invoice-importer.git
-cd workadu-invoice-importer
-Install dependencies:
+    settings:
+      series_id: 174862
+      vat_percent: 0
+      csv_file: "test_invoices.csv"
+      sleep_interval: 1.0
+    ```
 
-Bash
+## 📋 CSV Format
 
-pip install -r requirements.txt
-Configure the application: Create a config.yaml file in the root directory (refer to config.example.yaml):
+The script expects a CSV file with the following header structure:
 
-YAML
+| Customer Description | Customer Email | Description | Amount |
+| :--- | :--- | :--- | :--- |
+| Full Name | user@example.com | Service Name | 40.00 |
 
-api:
-  key: "your_workadu_api_key"
-  base_url: "https://app.workadu.com/api"
-settings:
-  series_id: 174862
-  vat_percent: 0
-  csv_file: "data.csv"
-  sleep_interval: 1.0
-Usage
-Ensure your CSV file matches the expected headers (Customer Description, Customer Email, Description, Amount), then run:
+> **Note:** If the email is missing, the script will generate a randomized placeholder email to ensure the Workadu record is created successfully.
 
-Bash
+## 🖥️ Usage
 
+Run the importer from your terminal:
+
+```bash
 python importer.py
-Security Note
-Never commit your config.yaml file containing your API key. This repository includes a .gitignore to prevent sensitive data leaks.
+```
 
-Suggested .gitignore
-To keep the repo professional, ensure these files are ignored:
+---
 
-Plaintext
-
-# Configuration
-config.yaml
-
-# Python
-__pycache__/
-*.py[cod]
-.venv/
-venv/
-
-# Data
-*.csv
+## ⚖️ License
+Distributed under the MIT License. See LICENSE for more information.
