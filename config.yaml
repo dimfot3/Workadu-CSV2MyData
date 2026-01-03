@@ -1,0 +1,10 @@
+api:
+  key: "YOUR_API_KEY_HERE"
+  base_url: "https://app.workadu.com/api"
+
+settings:
+  series_id: 174862
+  vat_percent: 0
+  csv_file: "test_invoices.csv"
+  sleep_interval: 1.0  # Seconds between requests
+  payment_type: 174852
