@@ -2,7 +2,7 @@
 
 This Python utility automates customer management and billing on Workadu, an all-in-one business management platform used for scheduling, ERP, and professional invoicing. By leveraging the Workadu REST API, the tool eliminates manual data entry, transforming raw administrative data into finalized financial records in a single execution.
 
-The workflow processes CSV exports (such as Calendly or Iris data) to identify customers, create new profiles when necessary, and generate detailed line-item invoices. Once published, the tool ensures all invoices are automatically transmitted to the AADE MyData platform, keeping your business fully compliant with Greek tax regulations.
+The workflow processes CSV exports (could come from Stripe, Iris or manual data) to identify customers, create new profiles when necessary, and generate detailed line-item invoices. Once published, the tool ensures all invoices are automatically transmitted to the AADE MyData platform, keeping your business fully compliant with Greek tax regulations.
 
 
 ## 🛠️ Tech Stack
